@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace UserControlTest
 {
-    public partial class Form1 : Form
+    public partial class CountDown : UserControl
     {
-        public Form1()
+        MainForm mainForm = null;
+        public CountDown(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
+        }
+
+        private void CountDown_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
