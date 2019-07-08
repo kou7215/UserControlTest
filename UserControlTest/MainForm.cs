@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace UserControlTest
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IObserver
     {
         public MainMenu mainMenuCtrl = null;
         public CountDown countDownCtrl = null;
@@ -25,6 +25,15 @@ namespace UserControlTest
             MainPanel.Controls.Add(countDownCtrl);
             mainMenuCtrl.Visible = true;
             countDownCtrl.Visible = false;
+        }
+
+        void Update(IObservable observable)
+        {
+            if (observable is MainMenu)
+            {
+                ((MainMenu)observable).Visible = false;
+
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
